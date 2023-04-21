@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%);
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  height: 100%;
+  max-width: 1400px;
+  padding: 10px 15px;
+  margin: 0 auto;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.header__logo {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 0, 0.9);
+  font-size: 33px;
+}
+.header .logo-color {
+  color: white;
+  vertical-align: sub;
+}
+.header__layout {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  justify-content: space-between;
+}
+.header__layout-text {
+  color: white;
+}
+.header__layout-shortcut {
+  color: rgba(255, 255, 0, 0.9);
+  font-size: 28px;
+  font-weight: 700;
+}
+.header__layout-icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.header .icon {
+  width: 46px;
+  height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.header #icon-eng {
+  background-image: url("assets/flags-us-uk.webp");
+}
+.header #icon-ru {
+  background-image: url("assets/flag-ru.png");
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
+.main__container {
+  padding-top: 50px;
+}
+.main .textarea__box {
+  width: 600px;
+  height: 300px;
+  box-shadow: 16px 14px 20px #0000008c;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .textarea__box::before {
+  content: "";
+  background-image: conic-gradient(#ff0052 20deg, transparent 120deg);
+  width: 250%;
+  height: 250%;
+  position: absolute;
+  animation: rotate 8s linear infinite;
+}
+.main .textarea__box::after {
+  content: "";
+  width: 590px;
+  height: 290px;
+  position: absolute;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0052;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.main .textarea {
+  background-color: #2b2b2b;
+  width: 590px;
+  height: 290px;
+  outline: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  outline: solid 10px #2b2b2b;
+  border-radius: 5px;
+  padding: 12px;
+  resize: none;
+  z-index: 5;
+}
+.main .textarea:focus {
+  outline-color: transparent;
+}
+.main .keyboard {
+  margin-top: 50px;
+}
+.main .keyboard .row-1 {
+  display: flex;
+  gap: 20px;
+}
+.main .keyboard .key {
+  width: 60px;
+  height: 60px;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 16px 14px 20px #0000008c;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 2s linear;
+}
+.main .keyboard .key::before {
+  content: "";
+  background-image: conic-gradient(#ff0052 20deg, transparent 120deg);
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  animation: rotate 3s linear infinite;
+}
+.main .keyboard .key::after {
+  content: "1";
+  font-size: large;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0052;
+  background-color: #ffffff;
+}
+.main .keyboard .key:focus::after {
+  width: 55px;
+  height: 55px;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.footer__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.footer__copyright {
+  cursor: default;
+}
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  transition: all .4s ease;
+  font-size: 20px;
+}
+.footer__link:hover {
+  color: rgba(255, 255, 0, 0.9);
+}
+.footer__github-span {
+  padding-top: 5px;
+}
