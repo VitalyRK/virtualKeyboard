@@ -16,6 +16,7 @@ body {
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  color: #ffffff;
   font-weight: 400;
   font-size: 18px;
   display: flex;
@@ -71,84 +72,69 @@ a {
 .header .icon {
   width: 46px;
   height: 28px;
-  background-size: contain;
-  background-repeat: no-repeat;
   cursor: pointer;
+  border: 1px solid white;
+  text-align: center;
+  padding-top: 3px;
+  color: #ffffff;
+  font-weight: 700;
+  transition: all .3s ease;
 }
-.header #icon-eng {
-  background-image: url("assets/flags-us-uk.webp");
-}
-.header #icon-ru {
-  background-image: url("assets/flag-ru.png");
+.header .icon:hover {
+  color: rgba(255, 255, 0, 0.9);
+  border-color: rgba(255, 255, 0, 0.9);
 }
 
 .main {
   display: flex;
   flex-grow: 1;
+  transition: all .3s ease;
+}
+.main .notification {
+  text-align: center;
+  font-size: 20px;
 }
 .main__container {
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .main .textarea__box {
   width: 600px;
   height: 300px;
-  box-shadow: 16px 14px 20px #0000008c;
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main .textarea__box::before {
-  content: "";
-  background-image: conic-gradient(#ff0052 20deg, transparent 120deg);
-  width: 250%;
-  height: 250%;
-  position: absolute;
-  animation: rotate 8s linear infinite;
-}
-.main .textarea__box::after {
-  content: "";
-  width: 590px;
-  height: 290px;
-  position: absolute;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ff0052;
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
+  margin: 0 auto;
 }
 .main .textarea {
   background-color: #2b2b2b;
-  width: 590px;
-  height: 290px;
-  outline: none;
+  width: 595px;
+  height: 295px;
   color: white;
   font-family: 'Montserrat', sans-serif;
+  box-shadow: 16px 14px 20px #0000008d;
   font-size: 22px;
-  outline: solid 10px #2b2b2b;
+  outline: solid 5px #2b2b2b;
   border-radius: 5px;
   padding: 12px;
   resize: none;
   z-index: 5;
+  transition: all .1s ease;
 }
 .main .textarea:focus {
-  outline-color: transparent;
+  outline-color: rgba(255, 255, 255, 0.4);
 }
 .main .keyboard {
-  margin-top: 50px;
-}
-.main .keyboard .row-1 {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #eeeeee;
+  user-select: none;
+}
+.main .keyboard .row {
+  display: flex;
+  justify-content: center;
   gap: 20px;
 }
 .main .keyboard .key {
@@ -156,47 +142,93 @@ a {
   height: 60px;
   outline: none;
   border-radius: 5px;
-  box-shadow: 16px 14px 20px #0000008c;
+  background-color: white;
+  font-size: 29px;
+  font-weight: 700;
+  box-shadow: 5px 5px 5px #b8b8b8;
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 2s linear;
+  transition: all .2s linear;
+  color: black;
+  cursor: pointer;
+  z-index: 99;
 }
-.main .keyboard .key::before {
+.main .keyboard .key:active {
+  scale: 0.9;
+  background-color: #02f7ff8d;
+}
+.main .keyboard .key:hover {
+  background-color: #02f7ff8d;
+}
+.main .keyboard .key:focus {
+  background-color: #02f7ff8d;
+}
+.main .keyboard .upperLetter {
+  text-transform: uppercase;
+}
+.main .keyboard .key-double {
+  font-size: 15px;
+}
+.main .keyboard .key-shift {
+  width: 120px;
+}
+.main .keyboard .key-backspace {
+  width: 150px;
+}
+.main .keyboard .key-tab {
+  width: 90px;
+}
+.main .keyboard .key-delete {
+  width: 90px;
+}
+.main .keyboard .key-caps {
+  width: 140px;
+  position: relative;
+}
+.main .keyboard .key-caps::before {
   content: "";
-  background-image: conic-gradient(#ff0052 20deg, transparent 120deg);
-  width: 150%;
-  height: 150%;
   position: absolute;
-  animation: rotate 3s linear infinite;
+  background-color: #7e7e7e;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+  z-index: 0;
 }
-.main .keyboard .key::after {
-  content: "1";
-  font-size: large;
-  width: 60px;
-  height: 60px;
+.main .keyboard .green-active::after {
+  content: "";
   position: absolute;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ff0052;
-  background-color: #ffffff;
+  background-color: #99ff00;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+  z-index: 5;
 }
-.main .keyboard .key:focus::after {
-  width: 55px;
-  height: 55px;
+.main .keyboard .key-enter {
+  width: 140px;
 }
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
+.main .keyboard .key-space {
+  width: 480px;
 }
+.main .keyboard .key-space:active {
+  scale: 0.97;
+}
+.main .keyboard .key-alt {
+  width: 80px;
+}
+.main .keyboard .key-ctrl {
+  width: 80px;
+}
+.main .keyboard .key-win {
+  width: 80px;
+}
+
 .footer__inner {
   width: 100%;
   display: flex;
