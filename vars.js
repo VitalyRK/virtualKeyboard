@@ -24,67 +24,67 @@ export const mainHtml = `
   </div>
   <div class="keyboard">
     <div class="row">
-      <div class="key key-double">\`</div>
-      <div class="key key-double">!<br>1</div>
-      <div class="key key-double">2</div>
-      <div class="key key-double">3</div>
-      <div class="key key-double">4</div>
-      <div class="key key-double">5</div>
-      <div class="key key-double">6</div>
-      <div class="key key-double">7</div>
-      <div class="key key-double">8</div>
-      <div class="key key-double">9</div>
-      <div class="key key-double">0</div>
-      <div class="key key-double">-</div>
-      <div class="key key-double">=</div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
+      <div class="key key-letter key-double"></div>
       <div class="key key-backspace">backspace</div>
     </div>
     <div class="row">
       <div class="key key-tab">tab</div>
-      <div class="key key-letter">q</div>
-      <div class="key key-letter">w</div>
-      <div class="key key-letter">e</div>
-      <div class="key key-letter">r</div>
-      <div class="key key-letter">t</div>
-      <div class="key key-letter">y</div>
-      <div class="key key-letter">u</div>
-      <div class="key key-letter">i</div>
-      <div class="key key-letter">o</div>
-      <div class="key key-letter">p</div>
-      <div class="key key-double">[</div>
-      <div class="key key-double">]</div>
-      <div class="key key-double">\\</div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter key-double"></div>
       <div class="key key-delete">delete</div>
     </div>
     <div class="row">
       <div class="key key-caps">caps lock</div>
-      <div class="key key-letter">a</div>
-      <div class="key key-letter">s</div>
-      <div class="key key-letter">d</div>
-      <div class="key key-letter">f</div>
-      <div class="key key-letter">g</div>
-      <div class="key key-letter">h</div>
-      <div class="key key-letter">j</div>
-      <div class="key key-letter">k</div>
-      <div class="key key-letter">l</div>
-      <div class="key key-double">;</div>
-      <div class="key key-double">'</div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter letter-rus key-double"></div>
       <div class="key key-enter">enter</div>
     </div>
     <div class="row">
-      <div class="key key-shift">shift</div>
-      <div class="key key-letter">z</div>
-      <div class="key key-letter">x</div>
-      <div class="key key-letter">c</div>
-      <div class="key key-letter">v</div>
-      <div class="key key-letter">b</div>
-      <div class="key key-letter">n</div>
-      <div class="key key-letter">m</div>
-      <div class="key key-double">,</div>
-      <div class="key key-double">.</div>
-      <div class="key key-double">/</div>
+      <div class="key key-shift" id="left_shift">shift</div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter"></div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter letter-rus key-double"></div>
+      <div class="key key-letter key-double"></div>
       <div class="key key-up">⬆</div>
-      <div class="key key-shift">shift</div>
+      <div class="key key-shift" id="right_shift">shift</div>
     </div>
     <div class="row">
     <div class="key key-ctrl">ctrl</div>
@@ -102,90 +102,105 @@ export const mainHtml = `
 </div>
 `;
 
-export const mainHtmlRu = `
-<div class="container main__container">
-  <div class="textarea__box">
-    <textarea class="textarea" name="area" id="area" placeholder="Let's test me." cols="100" rows="10"></textarea>
-  </div>
-  <div class="keyboard">
-    <div class="row">
-      <div class="key key-letter">ё</div>
-      <div class="key key-double">1</div>
-      <div class="key key-double">2</div>
-      <div class="key key-double">3</div>
-      <div class="key key-double">4</div>
-      <div class="key key-double">5</div>
-      <div class="key key-double">6</div>
-      <div class="key key-double">7</div>
-      <div class="key key-double">8</div>
-      <div class="key key-double">9</div>
-      <div class="key key-double">0</div>
-      <div class="key key-double">-</div>
-      <div class="key key-double">=</div>
-      <div class="key key-backspace">backspace</div>
-    </div>
-    <div class="row">
-      <div class="key key-tab">tab</div>
-      <div class="key key-letter">й</div>
-      <div class="key key-letter">ц</div>
-      <div class="key key-letter">у</div>
-      <div class="key key-letter">к</div>
-      <div class="key key-letter">е</div>
-      <div class="key key-letter">н</div>
-      <div class="key key-letter">г</div>
-      <div class="key key-letter">ш</div>
-      <div class="key key-letter">щ</div>
-      <div class="key key-letter">з</div>
-      <div class="key key-letter">х</div>
-      <div class="key key-letter">ъ</div>
-      <div class="key key-double">\\</div>
-      <div class="key key-delete">delete</div>
-    </div>
-    <div class="row">
-      <div class="key key-caps">caps lock</div>
-      <div class="key key-letter">ф</div>
-      <div class="key key-letter">ы</div>
-      <div class="key key-letter">в</div>
-      <div class="key key-letter">а</div>
-      <div class="key key-letter">п</div>
-      <div class="key key-letter">р</div>
-      <div class="key key-letter">о</div>
-      <div class="key key-letter">л</div>
-      <div class="key key-letter">д</div>
-      <div class="key key-letter">ж</div>
-      <div class="key key-letter">э</div>
-      <div class="key key-enter">enter</div>
-    </div>
-    <div class="row">
-      <div class="key key-shift">shift</div>
-      <div class="key key-letter">я</div>
-      <div class="key key-letter">ч</div>
-      <div class="key key-letter">с</div>
-      <div class="key key-letter">м</div>
-      <div class="key key-letter">и</div>
-      <div class="key key-letter">т</div>
-      <div class="key key-letter">ь</div>
-      <div class="key key-letter">б</div>
-      <div class="key key-letter">ю</div>
-      <div class="key key-double">.</div>
-      <div class="key key-up">⬆</div>
-      <div class="key key-shift">shift</div>
-    </div>
-    <div class="row">
-    <div class="key key-ctrl">ctrl</div>
-    <div class="key key-win">win</div>
-    <div class="key key-alt">alt</div>
-    <div class="key key-space"></div>
-    <div class="key key-alt">alt</div>
-    <div class="key key-left">⬅</div>
-    <div class="key key-down">⬇</div>
-    <div class="key key-right">➡</div>
-    <div class="key key-ctrl">ctrl</div>
-  </div>
-  </div>
-  <div class="notification">This project has been created in Windows OS</div>
-</div>
-`;
+export const mainContainLetterEng = [
+  '<span>~</span><span>`</span>',
+  '<span>!</span><span>1</span>',
+  '<span>@</span><span>2</span>',
+  '<span>#</span><span>3</span>',
+  '<span>$</span><span>4</span>',
+  '<span>%</span><span>5</span>',
+  '<span>^</span><span>6</span>',
+  '<span>&</span><span>7</span>',
+  '<span>*</span><span>8</span>',
+  '<span>(</span><span>9</span>',
+  '<span>)</span><span>0</span>',
+  '<span>_</span><span>-</span>',
+  '<span>+</span><span>=</span>',
+  'q',
+  'w',
+  'e',
+  'r',
+  't',
+  'y',
+  'u',
+  'i',
+  'o',
+  'p',
+  '<span>{</span><span>[</span>',
+  '<span>}</span><span>]</span>',
+  '<span>|</span><span>\\</span>',
+  'a',
+  's',
+  'd',
+  'f',
+  'g',
+  'h',
+  'j',
+  'k',
+  'l',
+  '<span>:</span><span>;</span>',
+  '<span>"</span><span>\'</span>',
+  'z',
+  'x',
+  'c',
+  'v',
+  'b',
+  'n',
+  'm',
+  '<span><</span><span>,</span>',
+  '<span>></span><span>.</span>',
+  '<span>?</span><span>/</span>'
+];
+
+export const mainContainLetterRu = [
+  'ё',
+  '<span>!</span><span>1</span>',
+  '<span>"</span><span>2</span>',
+  '<span>№</span><span>3</span>',
+  '<span>;</span><span>4</span>',
+  '<span>%</span><span>5</span>',
+  '<span>:</span><span>6</span>',
+  '<span>?</span><span>7</span>',
+  '<span>*</span><span>8</span>',
+  '<span>(</span><span>9</span>',
+  '<span>)</span><span>0</span>',
+  '<span>_</span><span>-</span>',
+  '<span>+</span><span>=</span>',
+  'й',
+  'ц',
+  'у',
+  'к',
+  'е',
+  'н',
+  'г',
+  'ш',
+  'щ',
+  'з',
+  'х',
+  'ъ',
+  '<span>|</span><span>\\</span>',
+  'ф',
+  'ы',
+  'в',
+  'а',
+  'п',
+  'р',
+  'о',
+  'л',
+  'д',
+  'ж',
+  'э',
+  'я',
+  'ч',
+  'с',
+  'м',
+  'и',
+  'т',
+  'ь',
+  'б',
+  'ю',
+  '<span>,</span><span>.</span>'
+];
 
 export const footerHtml = `
 <div class="container footer__container">
