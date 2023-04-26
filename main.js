@@ -18,6 +18,7 @@ fillPage(footer, footerHtml, 'footer');
 const keyboardChange = document.querySelectorAll('.key-letter');
 const btnEng = document.getElementById('icon-eng');
 const btnRu = document.getElementById('icon-ru');
+const textBlock = document.querySelector('textarea');
 
 const fillMain = () => {
     if (localStorage.getItem('currentLanguage') == 'eng') {
@@ -83,11 +84,12 @@ btnRu.addEventListener('click', () => {
   });
 
   const keys = document.querySelectorAll('.key');
+  let flagShort = false;
 
   window.addEventListener('keydown', (e) => {
+    textBlock.focus(); // TODO maybe this is wrong
     for (let i = 0; i < keys.length; i++) {
       if (keys[i].dataset.key == e.code) {
-        // console.log('Ko')
         keys[i].classList.add('key-active');
       };
     }
@@ -97,40 +99,22 @@ btnRu.addEventListener('click', () => {
             if (keyboardChange[i].classList.contains('key-double')) keyboardChange[i].classList.add('key-double-active');
           }
     };
-
-
-    // if (e.ctrlKey && e.shiftKey && flagShortcut) {
-    //   if (localStorage.getItem('currentLanguage') == 'eng') {
-    //     if (letter[0].classList.contains('upperLetter')) {
-    //       main.innerHTML = mainHtmlRu;
-    //       letter = document.querySelectorAll('.key-letter');
-    //       for (let i = 0; i < letter.length; i++) {
-    //         letter[i].classList.toggle('upperLetter');
-    //       }
-    //     } else main.innerHTML = mainHtmlRu;
-    //     localStorage.setItem('currentLanguage', 'ru');
-    //     caps = document.querySelector('.key-caps');
-    //     letter = document.querySelectorAll('.key-letter');
-    //     flagShortcut = false;
-    //   } else {
-    //     if (letter[0].classList.contains('upperLetter')) {
-    //       main.innerHTML = mainHtml;
-    //       letter = document.querySelectorAll('.key-letter');
-    //       for (let i = 0; i < letter.length; i++) {
-    //         letter[i].classList.toggle('upperLetter');
-    //       }
-    //     } else main.innerHTML = mainHtml;
-    //     localStorage.setItem('currentLanguage', 'eng');
-    //     caps = document.querySelector('.key-caps');
-    //     letter = document.querySelectorAll('.key-letter');
-    //     flagShortcut = false;
-    //   }
-    // }
+    if (e.code == 'ControlLeft') flagShort = true;
+    if (e.code == 'AltLeft' && flagShort) {
+      flagShort =false;
+      localStorage.getItem('currentLanguage') == 'eng' ? localStorage.setItem('currentLanguage', 'ru') : localStorage.setItem('currentLanguage', 'eng');
+      fillMain();
+    } 
   });
 
   window.addEventListener('keyup', (e) => {
     if (e.key == "CapsLock") {
       listenerCaps();
+    }
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i].dataset.key == e.code) {
+        keys[i].classList.remove('key-active');
+      };
     }
     if (e.key == "Shift") {
       if (flagCaps == false) {
@@ -144,8 +128,5 @@ btnRu.addEventListener('click', () => {
           }
         }
     };
-    if (e.ctrlKey && e.shiftKey) {
-      flagShortcut = true;
-    }
   });
   // console.log(typeof keyboardChange[0].querySelectorAll('span')[1].innerHTML)

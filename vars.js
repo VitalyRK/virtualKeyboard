@@ -8,7 +8,7 @@ export const headerHtml = `
       <p>Keyboard shortcut to</p>
       <p>change language:</p>
     </div>
-    <div class="header__layout-shortcut">Shift + Ctrl</div>
+    <div class="header__layout-shortcut">LeftCtrl + LeftAlt</div>
     <div class="header__layout-icons">
       <div class="icon" id="icon-eng">EN</div>
       <div class="icon" id="icon-ru">RU</div>
@@ -24,78 +24,78 @@ export const mainHtml = `
   </div>
   <div class="keyboard">
     <div class="row">
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-backspace" data-key="ShiftLeft">backspace</div>
+      <div class="key key-letter letter-rus key-double" data-key="Backquote"></div>
+      <div class="key key-letter key-double" data-key="Digit1"></div>
+      <div class="key key-letter key-double" data-key="Digit2"></div>
+      <div class="key key-letter key-double" data-key="Digit3"></div>
+      <div class="key key-letter key-double" data-key="Digit4"></div>
+      <div class="key key-letter key-double" data-key="Digit5"></div>
+      <div class="key key-letter key-double" data-key="Digit6"></div>
+      <div class="key key-letter key-double" data-key="Digit7"></div>
+      <div class="key key-letter key-double" data-key="Digit8"></div>
+      <div class="key key-letter key-double" data-key="Digit9"></div>
+      <div class="key key-letter key-double" data-key="Digit0"></div>
+      <div class="key key-letter key-double" data-key="Minus"></div>
+      <div class="key key-letter key-double" data-key="Equal"></div>
+      <div class="key key-backspace" data-key="Backspace">backspace</div>
     </div>
     <div class="row">
-      <div class="key key-tab">tab</div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-delete">delete</div>
+      <div class="key key-tab" data-key="Tab">tab</div>
+      <div class="key key-letter" data-key="KeyQ"></div>
+      <div class="key key-letter" data-key="KeyW"></div>
+      <div class="key key-letter" data-key="KeyE"></div>
+      <div class="key key-letter" data-key="KeyR"></div>
+      <div class="key key-letter" data-key="KeyT"></div>
+      <div class="key key-letter" data-key="KeyY"></div>
+      <div class="key key-letter" data-key="KeyU"></div>
+      <div class="key key-letter" data-key="KeyI"></div>
+      <div class="key key-letter" data-key="KeyO"></div>
+      <div class="key key-letter" data-key="KeyP"></div>
+      <div class="key key-letter letter-rus key-double" data-key="BracketLeft"></div>
+      <div class="key key-letter letter-rus key-double" data-key="BracketRight"></div>
+      <div class="key key-letter key-double" data-key="Backslash"></div>
+      <div class="key key-delete" data-key="Delete">delete</div>
     </div>
     <div class="row">
-      <div class="key key-caps">caps lock</div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-enter">enter</div>
+      <div class="key key-caps" data-key="CapsLock">caps lock</div>
+      <div class="key key-letter" data-key="KeyA"></div>
+      <div class="key key-letter" data-key="KeyS"></div>
+      <div class="key key-letter" data-key="KeyD"></div>
+      <div class="key key-letter" data-key="KeyF"></div>
+      <div class="key key-letter" data-key="KeyG"></div>
+      <div class="key key-letter" data-key="KeyH"></div>
+      <div class="key key-letter" data-key="KeyJ"></div>
+      <div class="key key-letter" data-key="KeyK"></div>
+      <div class="key key-letter" data-key="KeyL"></div>
+      <div class="key key-letter letter-rus key-double" data-key="Semicolon"></div>
+      <div class="key key-letter letter-rus key-double" data-key="Quote"></div>
+      <div class="key key-enter" data-key="Enter">enter</div>
     </div>
     <div class="row">
       <div class="key key-shift" data-key="ShiftLeft">shift</div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter letter-rus key-double"></div>
-      <div class="key key-letter key-double"></div>
-      <div class="key key-up">⬆</div>
+      <div class="key key-letter" data-key="KeyZ"></div>
+      <div class="key key-letter" data-key="KeyX"></div>
+      <div class="key key-letter" data-key="KeyC"></div>
+      <div class="key key-letter" data-key="KeyV"></div>
+      <div class="key key-letter" data-key="KeyB"></div>
+      <div class="key key-letter" data-key="KeyN"></div>
+      <div class="key key-letter" data-key="KeyM"></div>
+      <div class="key key-letter letter-rus key-double" data-key="Comma"></div>
+      <div class="key key-letter letter-rus key-double" data-key="Period"></div>
+      <div class="key key-letter key-double" data-key="Slash"></div>
+      <div class="key key-up" data-key="ArrowUp">⬆</div>
       <div class="key key-shift" data-key="ShiftRight">shift</div>
     </div>
     <div class="row">
-    <div class="key key-ctrl">ctrl</div>
-    <div class="key key-win">win</div>
-    <div class="key key-alt">alt</div>
-    <div class="key key-space"></div>
-    <div class="key key-alt">alt</div>
-    <div class="key key-left">⬅</div>
-    <div class="key key-down">⬇</div>
-    <div class="key key-right">➡</div>
-    <div class="key key-ctrl">ctrl</div>
+      <div class="key key-ctrl" data-key="ControlLeft">ctrl</div>
+      <div class="key key-win" data-key="win">win</div>
+      <div class="key key-alt" data-key="AltLeft">alt</div>
+      <div class="key key-space" data-key="Space"></div>
+      <div class="key key-alt" data-key="AltRight">alt</div>
+      <div class="key key-left" data-key="ArrowLeft">⬅</div>
+      <div class="key key-down" data-key="ArrowDown">⬇</div>
+      <div class="key key-right" data-key="ArrowRight">➡</div>
+      <div class="key key-ctrl" data-key="ControlRight">ctrl</div>
   </div>
   </div>
   <div class="notification">This project has been created in Windows OS</div>
