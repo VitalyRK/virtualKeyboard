@@ -37,7 +37,7 @@ export const mainHtml = `
       <div class="key key-letter key-double"></div>
       <div class="key key-letter key-double"></div>
       <div class="key key-letter key-double"></div>
-      <div class="key key-backspace">backspace</div>
+      <div class="key key-backspace" data-key="ShiftLeft">backspace</div>
     </div>
     <div class="row">
       <div class="key key-tab">tab</div>
@@ -72,7 +72,7 @@ export const mainHtml = `
       <div class="key key-enter">enter</div>
     </div>
     <div class="row">
-      <div class="key key-shift" id="left_shift">shift</div>
+      <div class="key key-shift" data-key="ShiftLeft">shift</div>
       <div class="key key-letter"></div>
       <div class="key key-letter"></div>
       <div class="key key-letter"></div>
@@ -84,7 +84,7 @@ export const mainHtml = `
       <div class="key key-letter letter-rus key-double"></div>
       <div class="key key-letter key-double"></div>
       <div class="key key-up">⬆</div>
-      <div class="key key-shift" id="right_shift">shift</div>
+      <div class="key key-shift" data-key="ShiftRight">shift</div>
     </div>
     <div class="row">
     <div class="key key-ctrl">ctrl</div>

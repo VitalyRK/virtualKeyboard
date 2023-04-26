@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap');
 $color-yellow: rgba(255, 255, 0, 0.9);
 $color-red: rgba(242, 7, 7, 0.8);
+$green: green;
 
 * {
   padding: 0;
@@ -15,10 +16,13 @@ html {
 }
 
 body {
-  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%);
+  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%) no-repeat center top fixed;
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   color: #ffffff;
   font-weight: 400;
   font-size: 18px;
@@ -164,41 +168,62 @@ a {
     .key {
       width: 60px;
       height: 60px;
-      outline: none;
       border-radius: 5px;
       background-color: rgb(255, 255, 255);
       font-size: 29px;
       font-weight: 700;
       box-shadow: 5px 5px 5px #b8b8b8;
-      position: relative;
-      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all .2s linear;
+      transition: all .3s linear;
       color: black;
       cursor: pointer;
-      z-index: 99;
 
       &:active {
         scale: 0.9;
-        background-color: #02f7ff8d;
+        border-radius: 10px;
       }
 
       &:hover {
         background-color: #02f7ff8d;
       }
-      &:focus {
-        background-color: #02f7ff8d;
-      }
+
     }
+
+    .key-active {
+      scale: 0.9;
+      background-color: #02f7ff8d;
+      border-radius: 10px;
+    }
+
     .upperLetter {
       text-transform: uppercase;
     }
 
     .key-double {
       font-size: 22px;
-      line-height: 2;
+      display: flex;
+      flex-direction: column;
+
+      & span {
+        transition: all .2s ease;
+
+        &:first-child {
+          font-size: 20px;
+          color: #7e7e7e;
+        }
+      }
+    }
+
+    .key-double-active span:first-child {
+      color: #000;
+      font-size: 29px;
+    }
+
+    .key-double-active span:last-child {
+      opacity: 0;
+      font-size: 1px;
     }
 
     .key-shift {

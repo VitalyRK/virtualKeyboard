@@ -12,12 +12,13 @@ html {
 }
 
 body {
-  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%) no-repeat center top fixed;;
+  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%) no-repeat center top fixed;
+  height: 100%;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
-  font-family: 'Roboto', sans-serif;
   color: #ffffff;
   font-weight: 400;
   font-size: 18px;
@@ -142,60 +143,50 @@ a {
 .main .keyboard .key {
   width: 60px;
   height: 60px;
-  outline: none;
   border-radius: 5px;
   background-color: white;
   font-size: 29px;
   font-weight: 700;
   box-shadow: 5px 5px 5px #b8b8b8;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .2s linear;
+  transition: all .3s linear;
   color: black;
   cursor: pointer;
-  z-index: 99;
 }
 .main .keyboard .key:active {
   scale: 0.9;
-  background-color: #02f7ff8d;
+  border-radius: 10px;
 }
 .main .keyboard .key:hover {
   background-color: #02f7ff8d;
 }
-.main .keyboard .key:focus {
+.main .keyboard .key-active {
+  scale: 0.9;
   background-color: #02f7ff8d;
+  border-radius: 10px;
 }
 .main .keyboard .upperLetter {
   text-transform: uppercase;
 }
 .main .keyboard .key-double {
+  font-size: 22px;
   display: flex;
   flex-direction: column;
-  text-align: left;
-
 }
-.key-double span {
+.main .keyboard .key-double span {
   transition: all .2s ease;
-
 }
-.key-double span:first-child {
+.main .keyboard .key-double span:first-child {
   font-size: 20px;
   color: #7e7e7e;
 }
-.key-double:hover span:first-child {
-  font-size: 29px;
-}
-.key-double:hover span:last-child {
-  opacity: 0;
-  font-size: 1px;
-}
-.key-double-active span:first-child {
+.main .keyboard .key-double-active span:first-child {
   color: #000;
   font-size: 29px;
 }
-.key-double-active span:last-child {
+.main .keyboard .key-double-active span:last-child {
   opacity: 0;
   font-size: 1px;
 }
