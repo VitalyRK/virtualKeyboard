@@ -84,14 +84,35 @@ btnRu.addEventListener('click', () => {
   });
 
   const keys = document.querySelectorAll('.key');
-  let flagShort = false;
 
   window.addEventListener('keydown', (e) => {
-    textBlock.focus(); // TODO maybe this is wrong
+    for (let i = 0; i < keyboardChange.length; i++) {
+      if (keyboardChange[i].dataset.key == e.code) {
+        e.preventDefault();
+        if (keyboardChange[i].classList.contains('letter-rus') && !keyboardChange[i].classList.contains('key-double')) {
+          let insert = keyboardChange[i].classList.contains('upperLetter') ? keyboardChange[i].textContent.toUpperCase() : keyboardChange[i].textContent;
+          inserLetter(insert);
+        } else if (keyboardChange[i].classList.contains('key-double')) {
+          let insert = keyboardChange[i].classList.contains('key-double-active') ? keyboardChange[i].querySelectorAll('span')[0].textContent : keyboardChange[i].querySelectorAll('span')[1].textContent;
+          inserLetter(insert);
+        } else {
+          let insert = keyboardChange[i].classList.contains('upperLetter') ? keyboardChange[i].textContent.toUpperCase() : keyboardChange[i].textContent;
+          inserLetter(insert);
+        }
+      }
+    }
+    textBlock.focus();
     for (let i = 0; i < keys.length; i++) {
       if (keys[i].dataset.key == e.code) {
         keys[i].classList.add('key-active');
       };
+    }
+    if (e.key == "Tab") {
+      e.preventDefault();
+      inserLetter(' ');
+      inserLetter(' ');
+      inserLetter(' ');
+      inserLetter(' ');
     }
     if (e.key == "Shift") {
         for (let i = 0; i < keyboardChange.length; i++) {
@@ -99,12 +120,10 @@ btnRu.addEventListener('click', () => {
             if (keyboardChange[i].classList.contains('key-double')) keyboardChange[i].classList.add('key-double-active');
           }
     };
-    if (e.code == 'ControlLeft') flagShort = true;
-    if (e.code == 'AltLeft' && flagShort) {
-      flagShort =false;
+    if (e.ctrlKey && e.altKey) {
       localStorage.getItem('currentLanguage') == 'eng' ? localStorage.setItem('currentLanguage', 'ru') : localStorage.setItem('currentLanguage', 'eng');
       fillMain();
-    } 
+    }
   });
 
   window.addEventListener('keyup', (e) => {
@@ -129,4 +148,66 @@ btnRu.addEventListener('click', () => {
         }
     };
   });
-  // console.log(typeof keyboardChange[0].querySelectorAll('span')[1].innerHTML)
+
+  const inserLetter = (insert) => {
+    let temp = textBlock.selectionStart;
+    textBlock.value = textBlock.value.slice(0, temp) + insert + textBlock.value.slice(textBlock.selectionEnd, textBlock.value.length);
+    textBlock.selectionStart = temp + 1;
+    textBlock.selectionEnd = textBlock.selectionStart;
+  };
+
+  keyboardChange.forEach(key => {
+    key.onclick = function() {
+      if (key.classList.contains('letter-rus') && !key.classList.contains('key-double')) {
+        let insert = key.classList.contains('upperLetter') ? key.textContent.toUpperCase() : key.textContent;
+        inserLetter(insert);
+      } else if (key.classList.contains('key-double')) {
+        let insert = key.classList.contains('key-double-active') ? key.querySelectorAll('span')[0].textContent : key.querySelectorAll('span')[1].textContent;
+        inserLetter(insert);
+      } else {
+        let insert = key.classList.contains('upperLetter') ? key.textContent.toUpperCase() : key.textContent;
+        inserLetter(insert);
+      }
+    }
+  });
+
+  const backspace = document.querySelector('.key-backspace');
+  backspace.addEventListener('click', () => {
+    // console.log(keyboardChange[1].querySelectorAll('span')[1].textContent);
+    if (textBlock.selectionStart == 0) return;
+    let temp = textBlock.selectionStart - 1;
+    textBlock.value = textBlock.value.slice(0, temp) + textBlock.value.slice(textBlock.selectionEnd, textBlock.value.length);
+    textBlock.selectionStart = temp;
+    textBlock.selectionEnd = textBlock.selectionStart;
+  });
+
+  const deleteKey = document.querySelector('.key-delete');
+  deleteKey.addEventListener('click', () => {
+    if (textBlock.selectionStart == textBlock.value.length) return;
+    let temp = textBlock.selectionStart;
+    textBlock.value = textBlock.value.slice(0, temp) + textBlock.value.slice(temp + 1, textBlock.value.length);
+    textBlock.selectionStart = temp;
+    textBlock.selectionEnd = textBlock.selectionStart;
+  });
+
+  const enter = document.querySelector('.key-enter');
+  enter.addEventListener('click', () => {
+    inserLetter('\n');
+  });
+
+  const tab = document.querySelector('.key-tab');
+  tab.addEventListener('click', () => {
+    inserLetter(' ');
+    inserLetter(' ');
+    inserLetter(' ');
+    inserLetter(' ');
+  });
+
+  const space = document.querySelector('.key-space');
+  space.addEventListener('click', () => {
+    inserLetter(' ');
+  });
+
+  window.addEventListener('mouseup', () => {
+    textBlock.focus();
+  })

@@ -8,7 +8,7 @@ export const headerHtml = `
       <p>Keyboard shortcut to</p>
       <p>change language:</p>
     </div>
-    <div class="header__layout-shortcut">LeftCtrl + LeftAlt</div>
+    <div class="header__layout-shortcut">Ctrl + Alt</div>
     <div class="header__layout-icons">
       <div class="icon" id="icon-eng">EN</div>
       <div class="icon" id="icon-ru">RU</div>
@@ -20,7 +20,7 @@ export const headerHtml = `
 export const mainHtml = `
 <div class="container main__container">
   <div class="textarea__box">
-    <textarea class="textarea" name="area" id="area" placeholder="Let's test me." cols="100" rows="10"></textarea>
+    <textarea class="textarea" name="area" id="area" placeholder="Let's test me." spellcheck="false" autofocus></textarea>
   </div>
   <div class="keyboard">
     <div class="row">
