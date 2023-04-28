@@ -120,6 +120,9 @@ btnRu.addEventListener('click', () => {
             if (keyboardChange[i].classList.contains('key-double')) keyboardChange[i].classList.add('key-double-active');
           }
     };
+    if (e.altKey) {
+      e.preventDefault();
+    }
     if (e.ctrlKey && e.altKey) {
       localStorage.getItem('currentLanguage') == 'eng' ? localStorage.setItem('currentLanguage', 'ru') : localStorage.setItem('currentLanguage', 'eng');
       fillMain();
@@ -206,6 +209,42 @@ btnRu.addEventListener('click', () => {
   const space = document.querySelector('.key-space');
   space.addEventListener('click', () => {
     inserLetter(' ');
+  });
+
+  const arrowUp = document.querySelector('.key-up');
+  arrowUp.addEventListener('click', () => {
+    inserLetter('⬆');
+
+  });
+
+  const arrowLeft = document.querySelector('.key-left');
+  arrowLeft.addEventListener('click', () => {
+    textBlock.selectionStart = textBlock.selectionStart == 0 ? 0 : textBlock.selectionStart - 1;
+    textBlock.selectionEnd = textBlock.selectionStart;
+  });
+
+  const arrowDown = document.querySelector('.key-down');
+  arrowDown.addEventListener('click', () => {
+    console.log(textBlock.selectionStart);
+    if (textBlock.value.split('\n').length > 1) {
+    let array = textBlock.value.split('\n');
+    let temp = array[0].length;
+    let i = 1;
+    while (textBlock.selectionStart < temp && i < array.length) {
+      temp += array[i].length;
+      i++;
+      textBlock.selectionStart = temp + 1;
+      console.log(textBlock.selectionStart);
+    }
+    console.log(temp)
+  }
+    // if (textBlock.value.split('\n').length > 1) textBlock.selectionStart += textBlock.value.split('\n')[0].length ;
+  });
+
+  const arrowRight = document.querySelector('.key-right');
+  arrowRight.addEventListener('click', () => {
+    textBlock.selectionStart += 1;
+    textBlock.selectionEnd = textBlock.selectionStart;
   });
 
   window.addEventListener('mouseup', () => {

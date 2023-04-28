@@ -98,10 +98,10 @@ a {
   font-size: 20px;
 }
 .main__container {
-  padding-top: 50px;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
 }
 .main .textarea__box {
   width: 600px;
