@@ -98,10 +98,10 @@ a {
   font-size: 20px;
 }
 .main__container {
-  padding-top: 10px;
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
 }
 .main .textarea__box {
   width: 600px;
@@ -123,9 +123,9 @@ a {
   z-index: 5;
   transition: all .1s ease;
 }
-/* .main .textarea:focus { */
-  /* outline-color: rgba(255, 255, 255, 0.4); */
-/* } */
+.main .textarea:focus {
+  outline-color: rgba(255, 255, 255, 0.4);
+}
 .main .keyboard {
   display: flex;
   flex-direction: column;
@@ -151,7 +151,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .2s linear;
+  transition: all .3s linear;
   color: black;
   cursor: pointer;
 }
