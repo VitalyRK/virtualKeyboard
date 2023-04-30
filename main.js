@@ -22,7 +22,7 @@ fillPage('footer', footerHtml, 'footer');
 const keyboardChange = document.querySelectorAll('.key-letter');
 const btnEng = document.getElementById('icon-eng');
 const btnRu = document.getElementById('icon-ru');
-const iBox = document.querySelector('textarea');
+const area = document.querySelector('textarea');
 
 const fillMain = () => {
   if (localStorage.getItem('currentLanguage') === 'eng') {
@@ -51,11 +51,11 @@ btnRu.addEventListener('click', () => {
 });
 
 const inserLetter = (insert) => {
-  const temp = iBox.selectionStart;
-  const endCursor = iBox.selectionEnd;
-  iBox.value = iBox.value.slice(0, temp) + insert + iBox.value.slice(endCursor, iBox.value.length);
-  iBox.selectionStart = temp + 1;
-  iBox.selectionEnd = iBox.selectionStart;
+  const temp = area.selectionStart;
+  const endCursor = area.selectionEnd;
+  area.value = area.value.slice(0, temp) + insert + area.value.slice(endCursor, area.value.length);
+  area.selectionStart = temp + 1;
+  area.selectionEnd = area.selectionStart;
 };
 
 const caps = document.querySelector('.key-caps');
@@ -113,7 +113,7 @@ window.addEventListener('keydown', (e) => {
       }
     }
   }
-  iBox.focus();
+  area.focus();
   for (let i = 0; i < keys.length; i += 1) {
     if (keys[i].dataset.key === e.code) {
       keys[i].classList.add('key-active');
@@ -183,20 +183,20 @@ keyboardChange.forEach((elem) => {
 
 const backspace = document.querySelector('.key-backspace');
 backspace.addEventListener('click', () => {
-  if (iBox.selectionStart === 0) return;
-  const temp = iBox.selectionStart - 1;
-  iBox.value = iBox.value.slice(0, temp) + iBox.value.slice(iBox.selectionEnd, iBox.value.length);
-  iBox.selectionStart = temp;
-  iBox.selectionEnd = iBox.selectionStart;
+  if (area.selectionStart === 0) return;
+  const temp = area.selectionStart - 1;
+  area.value = area.value.slice(0, temp) + area.value.slice(area.selectionEnd, area.value.length);
+  area.selectionStart = temp;
+  area.selectionEnd = area.selectionStart;
 });
 
 const deleteKey = document.querySelector('.key-delete');
 deleteKey.addEventListener('click', () => {
-  if (iBox.selectionStart === iBox.value.length) return;
-  const temp = iBox.selectionStart;
-  iBox.value = iBox.value.slice(0, temp) + iBox.value.slice(temp + 1, iBox.value.length);
-  iBox.selectionStart = temp;
-  iBox.selectionEnd = iBox.selectionStart;
+  if (area.selectionStart === area.value.length) return;
+  const temp = area.selectionStart;
+  area.value = area.value.slice(0, temp) + area.value.slice(temp + 1, area.value.length);
+  area.selectionStart = temp;
+  area.selectionEnd = area.selectionStart;
 });
 
 const enter = document.querySelector('.key-enter');
@@ -219,38 +219,63 @@ space.addEventListener('click', () => {
 
 const arrowUp = document.querySelector('.key-up');
 arrowUp.addEventListener('click', () => {
-  inserLetter('⬆');
+  if (area.value.split('\n').length > 1) {
+    const array = area.value.split('\n');
+    let limiter = 0;
+    for (let i = 0; i < array.length; i += 1) {
+      const temp = limiter;
+      limiter += array[i].length !== 0 ? array[i].length + 1 : 1;
+      if (area.selectionStart < limiter) {
+        if (i === 0) break;
+        area.selectionStart -= array[i - 1].length + 1;
+        if (area.selectionStart >= temp) area.selectionStart = temp - 1;
+        area.selectionEnd = area.selectionStart;
+        break;
+      }
+    }
+  }
 });
 
 const arrowLeft = document.querySelector('.key-left');
 arrowLeft.addEventListener('click', () => {
-  iBox.selectionStart = iBox.selectionStart === 0 ? 0 : iBox.selectionStart - 1;
-  iBox.selectionEnd = iBox.selectionStart;
+  area.selectionStart = area.selectionStart === 0 ? 0 : area.selectionStart - 1;
+  area.selectionEnd = area.selectionStart;
 });
 
-// const arrowDown = document.querySelector('.key-down');
-// arrowDown.addEventListener('click', () => {
-//   console.log(iBox.selectionStart);
-//   if (iBox.value.split('\n').length > 1) {
-//     let array = iBox.value.split('\n');
-//     let temp = array[0].length;
-//     let i = 1;
-//     while (iBox.selectionStart < temp && i < array.length) {
-//       temp += array[i].length;
-//       i++;
-//       iBox.selectionStart = temp + 1;
-//       console.log(iBox.selectionStart);
-//     }
-//     console.log(temp)
-//   }
-// });
+const arrowDown = document.querySelector('.key-down');
+arrowDown.addEventListener('click', () => {
+  if (area.value.split('\n').length > 1) {
+    const array = area.value.split('\n');
+    let limiter = 0;
+    for (let i = 0; i < array.length; i += 1) {
+      limiter += array[i].length !== 0 ? array[i].length + 1 : 1;
+      if (area.selectionStart < limiter) {
+        if (i + 1 < array.length) {
+          if (array[i + 1].length === 0) {
+            area.selectionStart = limiter;
+            break;
+          } else {
+            area.selectionStart += array[i].length + 1;
+            if (area.selectionStart > (array[i + 1].length + limiter)) {
+              area.selectionStart = array[i + 1].length + limiter;
+            } else if (area.selectionStart < limiter) {
+              area.selectionStart = limiter;
+            }
+            area.selectionEnd = area.selectionStart;
+            break;
+          }
+        } else break;
+      }
+    }
+  }
+});
 
 const arrowRight = document.querySelector('.key-right');
 arrowRight.addEventListener('click', () => {
-  iBox.selectionStart += 1;
-  iBox.selectionEnd = iBox.selectionStart;
+  area.selectionStart += 1;
+  area.selectionEnd = area.selectionStart;
 });
 
 window.addEventListener('mouseup', () => {
-  iBox.focus();
+  area.focus();
 });

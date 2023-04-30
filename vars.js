@@ -149,7 +149,7 @@ export const mainContainLetterEng = [
   'm',
   '<span><</span><span>,</span>',
   '<span>></span><span>.</span>',
-  '<span>?</span><span>/</span>'
+  '<span>?</span><span>/</span>',
 ];
 
 export const mainContainLetterRu = [
@@ -199,7 +199,7 @@ export const mainContainLetterRu = [
   'ь',
   'б',
   'ю',
-  '<span>,</span><span>.</span>'
+  '<span>,</span><span>.</span>',
 ];
 
 export const footerHtml = `
