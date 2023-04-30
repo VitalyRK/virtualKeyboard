@@ -1,56 +1,31 @@
 import {
-  headerHtml,
-  footerHtml,
-  mainHtml,
+  PageContent,
+  basicHtml,
   mainContainLetterEng,
   mainContainLetterRu,
 } from './vars.js';
 
-if (!localStorage.getItem('currentLanguage')) localStorage.setItem('currentLanguage', 'eng');
+const pageContent = new PageContent();
 
-const fillPage = (nodeName, htmlContent, nameClass) => {
-  const item = document.createElement(nodeName);
-  item.className = nameClass;
-  item.innerHTML = htmlContent;
-  document.body.append(item);
-};
+pageContent.fillPage(basicHtml);
+pageContent.fillKeyboard(mainContainLetterEng, mainContainLetterRu);
 
-fillPage('header', headerHtml, 'header');
-fillPage('main', mainHtml, 'main');
-fillPage('footer', footerHtml, 'footer');
-
-const keyboardChange = document.querySelectorAll('.key-letter');
 const btnEng = document.getElementById('icon-eng');
 const btnRu = document.getElementById('icon-ru');
 const area = document.querySelector('textarea');
-
-const fillMain = () => {
-  if (localStorage.getItem('currentLanguage') === 'eng') {
-    for (let i = 0; i < keyboardChange.length; i += 1) {
-      keyboardChange[i].innerHTML = mainContainLetterEng[i];
-      if (keyboardChange[i].classList.contains('letter-rus')) keyboardChange[i].classList.add('key-double');
-    }
-  } else {
-    for (let i = 0; i < keyboardChange.length; i += 1) {
-      keyboardChange[i].innerHTML = mainContainLetterRu[i];
-      if (keyboardChange[i].classList.contains('letter-rus')) keyboardChange[i].classList.remove('key-double');
-    }
-  }
-};
-
-fillMain();
+const keyboardChange = document.querySelectorAll('.key-letter');
 
 btnEng.addEventListener('click', () => {
-  localStorage.setItem('currentLanguage', 'eng');
-  fillMain();
+  pageContent.setLang('eng');
+  pageContent.fillKeyboard(mainContainLetterEng, mainContainLetterRu);
 });
 
 btnRu.addEventListener('click', () => {
-  localStorage.setItem('currentLanguage', 'ru');
-  fillMain();
+  pageContent.setLang('ru');
+  pageContent.fillKeyboard(mainContainLetterEng, mainContainLetterRu);
 });
 
-const inserLetter = (insert) => {
+const insertLetter = (insert) => {
   const temp = area.selectionStart;
   const endCursor = area.selectionEnd;
   area.value = area.value.slice(0, temp) + insert + area.value.slice(endCursor, area.value.length);
@@ -103,13 +78,13 @@ window.addEventListener('keydown', (e) => {
       e.preventDefault();
       if (keyboardChange[i].classList.contains('letter-rus') && !keyboardChange[i].classList.contains('key-double')) {
         const insert = keyboardChange[i].classList.contains('upperLetter') ? keyboardChange[i].textContent.toUpperCase() : keyboardChange[i].textContent;
-        inserLetter(insert);
+        insertLetter(insert);
       } else if (keyboardChange[i].classList.contains('key-double')) {
         const insert = keyboardChange[i].classList.contains('key-double-active') ? keyboardChange[i].querySelectorAll('span')[0].textContent : keyboardChange[i].querySelectorAll('span')[1].textContent;
-        inserLetter(insert);
+        insertLetter(insert);
       } else {
         const insert = keyboardChange[i].classList.contains('upperLetter') ? keyboardChange[i].textContent.toUpperCase() : keyboardChange[i].textContent;
-        inserLetter(insert);
+        insertLetter(insert);
       }
     }
   }
@@ -121,10 +96,10 @@ window.addEventListener('keydown', (e) => {
   }
   if (e.key === 'Tab') {
     e.preventDefault();
-    inserLetter(' ');
-    inserLetter(' ');
-    inserLetter(' ');
-    inserLetter(' ');
+    insertLetter(' ');
+    insertLetter(' ');
+    insertLetter(' ');
+    insertLetter(' ');
   }
   if (e.key === 'Shift') {
     for (let i = 0; i < keyboardChange.length; i += 1) {
@@ -136,9 +111,9 @@ window.addEventListener('keydown', (e) => {
     e.preventDefault();
   }
   if (e.ctrlKey && e.altKey) {
-    if (localStorage.getItem('currentLanguage') === 'eng') localStorage.setItem('currentLanguage', 'ru');
-    else localStorage.setItem('currentLanguage', 'eng');
-    fillMain();
+    if (pageContent.getLang() === 'eng') pageContent.setLang('ru');
+    else pageContent.setLang('eng');
+    pageContent.fillKeyboard(mainContainLetterEng, mainContainLetterRu);
   }
 });
 
@@ -170,13 +145,13 @@ keyboardChange.forEach((elem) => {
   key.onclick = () => {
     if (key.classList.contains('letter-rus') && !key.classList.contains('key-double')) {
       const insert = key.classList.contains('upperLetter') ? key.textContent.toUpperCase() : key.textContent;
-      inserLetter(insert);
+      insertLetter(insert);
     } else if (key.classList.contains('key-double')) {
       const insert = key.classList.contains('key-double-active') ? key.querySelectorAll('span')[0].textContent : key.querySelectorAll('span')[1].textContent;
-      inserLetter(insert);
+      insertLetter(insert);
     } else {
       const insert = key.classList.contains('upperLetter') ? key.textContent.toUpperCase() : key.textContent;
-      inserLetter(insert);
+      insertLetter(insert);
     }
   };
 });
@@ -201,20 +176,20 @@ deleteKey.addEventListener('click', () => {
 
 const enter = document.querySelector('.key-enter');
 enter.addEventListener('click', () => {
-  inserLetter('\n');
+  insertLetter('\n');
 });
 
 const tab = document.querySelector('.key-tab');
 tab.addEventListener('click', () => {
-  inserLetter(' ');
-  inserLetter(' ');
-  inserLetter(' ');
-  inserLetter(' ');
+  insertLetter(' ');
+  insertLetter(' ');
+  insertLetter(' ');
+  insertLetter(' ');
 });
 
 const space = document.querySelector('.key-space');
 space.addEventListener('click', () => {
-  inserLetter(' ');
+  insertLetter(' ');
 });
 
 const arrowUp = document.querySelector('.key-up');
