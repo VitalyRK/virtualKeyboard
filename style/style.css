@@ -126,6 +126,7 @@ a {
 }
 .main .keyboard {
   display: flex;
+  max-height: 1260px;
   flex-direction: column;
   gap: 20px;
   border-radius: 8px;
