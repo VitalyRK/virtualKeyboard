@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(172.25deg, rgba(242, 7, 7, 0.8) -9.86%, rgba(0, 0, 0, 0.8) 62.99%) no-repeat center top fixed;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  height: 100%;
+  max-width: 1400px;
+  padding: 10px 15px;
+  margin: 0 auto;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+.header__logo {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 0, 0.9);
+  font-size: 28px;
+}
+.header .logo-color {
+  color: white;
+  vertical-align: sub;
+}
+.header__layout {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  justify-content: space-between;
+}
+.header__layout-text {
+  color: white;
+}
+.header__layout-shortcut {
+  color: rgba(255, 255, 0, 0.9);
+  font-size: 25px;
+  font-weight: 700;
+}
+.header__layout-icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.header .icon {
+  width: 46px;
+  height: 28px;
+  cursor: pointer;
+  border: 1px solid white;
+  text-align: center;
+  padding-top: 3px;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  transition: all .3s ease;
+}
+.header .icon:hover {
+  color: rgba(255, 255, 0, 0.9);
+  border-color: rgba(255, 255, 0, 0.9);
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+  transition: all .3s ease;
+}
+.main .notification {
+  text-align: center;
+}
+.main__container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.main .textarea__box {
+  width: 600px;
+  height: 250px;
+  margin: 0 auto;
+}
+.main .textarea {
+  background-color: #2b2b2b;
+  width: 595px;
+  height: 245px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 16px 14px 20px #0000008d;
+  font-size: 22px;
+  outline: solid 5px #2b2b2b;
+  border-radius: 5px;
+  padding: 12px;
+  resize: none;
+  z-index: 5;
+  transition: all .1s ease;
+}
+.main .keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #eeeeee;
+  user-select: none;
+}
+.main .keyboard .row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.main .keyboard .key {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 23px;
+  font-weight: 700;
+  box-shadow: 5px 5px 5px #b8b8b8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s linear;
+  color: black;
+  cursor: pointer;
+}
+.main .keyboard .key:active {
+  scale: 0.9;
+  border-radius: 10px;
+}
+.main .keyboard .key:hover {
+  background-color: #02f7ff8d;
+}
+.main .keyboard .key-active {
+  scale: 0.9;
+  background-color: #02f7ff8d;
+  border-radius: 10px;
+}
+.main .keyboard .upperLetter {
+  text-transform: uppercase;
+}
+.main .keyboard .key-double {
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+}
+.main .keyboard .key-double span {
+  transition: all .2s ease;
+}
+.main .keyboard .key-double span:first-child {
+  font-size: 18px;
+  color: #7e7e7e;
+}
+.main .keyboard .key-double-active span:first-child {
+  color: #000;
+  font-size: 23px;
+}
+.main .keyboard .key-double-active span:last-child {
+  opacity: 0;
+  font-size: 1px;
+}
+.main .keyboard .key-shift {
+  width: 120px;
+}
+.main .keyboard .key-backspace {
+  width: 150px;
+}
+.main .keyboard .key-tab {
+  width: 90px;
+}
+.main .keyboard .key-delete {
+  width: 90px;
+}
+.main .keyboard .key-caps {
+  width: 140px;
+  position: relative;
+}
+.main .keyboard .key-caps::before {
+  content: "";
+  position: absolute;
+  background-color: #7e7e7e;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+  z-index: 0;
+}
+.main .keyboard .green-active::after {
+  content: "";
+  position: absolute;
+  background-color: #99ff00;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  top: 8px;
+  left: 10px;
+  z-index: 5;
+}
+.main .keyboard .key-enter {
+  width: 140px;
+}
+.main .keyboard .key-space {
+  width: 340px;
+}
+.main .keyboard .key-space:active {
+  scale: 0.97;
+}
+.main .keyboard .key-alt {
+  width: 80px;
+}
+.main .keyboard .key-ctrl {
+  width: 80px;
+}
+.main .keyboard .key-win {
+  width: 60px;
+}
+
+.footer__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.footer__copyright {
+  cursor: default;
+}
+.footer__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  transition: all .4s ease;
+  font-size: 15px;
+}
+.footer__link:hover {
+  color: rgba(255, 255, 0, 0.9);
+}
+.footer__github-span {
+  padding-top: 5px;
+}
